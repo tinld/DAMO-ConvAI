@@ -3,7 +3,7 @@ import argparse, os, sys, pickle, json
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from collections import Counter
 
-def construct_vocab_from_dataset(*data_paths, table_path='data/tables.bin', mwf=4, reference_file=None, output_path=None, sep='\t'):
+def construct_vocab_from_dataset(*data_paths, table_path='data/tables.json', mwf=4, reference_file=None, output_path=None, sep='\t'):
     words = []
     tables = pickle.load(open(table_path, 'rb'))
     for fp in data_paths:
