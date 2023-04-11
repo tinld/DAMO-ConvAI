@@ -12,7 +12,7 @@ vocab='pretrained_models/glove.42b.300d/vocab.txt'
 #echo "Start to preprocess the original train dataset ..."
 #python3 -u preprocess/process_dataset.py --dataset_path ${train_data} --raw_table_path ${table_data} --table_path ${table_out} --output_path 'data/train.bin' --skip_large #--verbose > train.log
 echo "Start to preprocess the original dev dataset ..."
-python3 -u preprocess/process_dataset.py --dataset_path ${dev_data} --raw_table_path ${table_data} --table_path ${table_out} --output_path 'data/dev.json' #--verbose > dev.log
+python3 -u preprocess/process_dataset.py --dataset_path ${dev_data} --raw_table_path ${table_data} --table_path ${table_out} --output_path 'data/dev.bin' #--verbose > dev.log
 #echo "Start to build word vocab for the dataset ..."
 #python3 -u preprocess/build_glove_vocab.py --data_paths 'data/train.bin' --table_path ${table_out} --reference_file ${vocab_glove} --mwf 4 --output_path ${vocab}
 echo "Start to construct graphs for the dataset ..."

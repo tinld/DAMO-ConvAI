@@ -3,7 +3,7 @@ import argparse, os, sys, pickle, json
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from collections import Counter
 
-def construct_vocab_from_dataset(*data_paths, table_path='data/tables.json', mwf=4, reference_file=None, output_path=None, sep='\t'):
+def construct_vocab_from_dataset(*data_paths, table_path='data/tables.bin', mwf=4, reference_file=None, output_path=None, sep='\t'):
     words = []
     tables = pickle.load(open(table_path, 'rb'))
     for fp in data_paths:
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_paths', nargs='+', type=str, help='input preprocessed dataset file')
-    parser.add_argument('--table_path', type=str, default='data/tables.json', help='preprocessed table file')
+    parser.add_argument('--table_path', type=str, default='data/tables.bin', help='preprocessed table file')
     parser.add_argument('--output_path', type=str, required=True, help='output word vocabulary path')
     parser.add_argument('--reference_file', type=str, default='pretrained_models/glove-42b-300d/vocab_glove.txt',
         help='eliminate word not in glove vocabulary, unless it occurs frequently >= mwf')
