@@ -60,7 +60,6 @@ class Preprocessor():
         self.threshold = 0.4
         
 
-
     def pipeline(self, entry: dict, db: dict, verbose: bool = False):
         """ db should be preprocessed """
         entry = self.preprocess_question(entry, db, verbose=verbose)
@@ -264,7 +263,7 @@ class Preprocessor():
         table_toks, column_toks = db['processed_table_toks'], db['processed_column_toks']
         table_names, column_names = db['processed_table_names'], db['processed_column_names']
         q_num, t_num, c_num, dtype = len(question_toks), len(table_toks), len(column_toks), '<U100'
-        
+
         assert len(column_names)==len(column_toks) and len(table_names) == len(table_toks) and len(raw_question_toks)==len(question_toks)
         question_id = [self.plm_tokenizer.cls_token_id]
         question = [q.lower() for q in question_toks]
@@ -522,6 +521,3 @@ class Preprocessor():
             print('Partial match:', ', '.join(column_matched_pairs['partial']) if column_matched_pairs['partial'] else 'empty')
             print('Value match:', ', '.join(column_matched_pairs['value']) if column_matched_pairs['value'] else 'empty', '\n')
         return entry
-    
-
-
