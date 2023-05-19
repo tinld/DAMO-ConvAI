@@ -371,6 +371,7 @@ class Preprocessor():
         for i in range(len(table_word_len)):
             a = self.ball.expmap0(tbl_cmp[:, i])
             b = self.ball.expmap0(tbl_msk[:, i])
+            print(f"Table Number: a= {a}, b={b}")
             dis=self.ball.dist(a,b)
             q_tab_mat[:, i] = dis
 
@@ -389,6 +390,7 @@ class Preprocessor():
         for i in range(len(column_word_len)):
             a = self.ball.expmap0(col_cmp[:, i])
             b = self.ball.expmap0(col_msk[:, i])
+            print(f"Column Number: a= {a}, b={b}")
             dis=self.ball.dist(a,b)
             q_col_mat[:, i] = dis
 
